@@ -1,0 +1,75 @@
+// 高さ調節用のクラスを作成する
+// .space-h{数値}で数値分heightを取る
+$spaceHeights: 20, 40, 60;
+@each $spaceHeight in $spaceHeights {
+  .space-h#{$spaceHeight}{
+    height: #{$spaceHeight}px;
+    width: 100%;
+  }
+}
+
+$paddings:  5, 10, 15, 20;
+@each $padding in $paddings {
+  .pt#{$padding}{
+    padding-top: #{$padding}px;
+  }
+
+  .pl#{$padding}{
+    padding-left: #{$padding}px;
+  }
+
+  .pr#{$padding}{
+    padding-right: #{$padding}px;
+  }
+
+  .pb#{$padding}{
+    padding-bottom: #{$padding}px;
+  }
+}
+
+$margins:  5, 10, 15, 20, 25, 30;
+@each $margin in $margins {
+  .mt#{$margin}{
+    margin-top: #{$margin}px;
+  }
+
+  .ml#{$margin}{
+    margin-left: #{$margin}px;
+  }
+
+  .mr#{$margin}{
+    margin-right: #{$margin}px;
+  }
+
+  .mb#{$margin}{
+    margin-bottom: #{$margin}px;
+  }
+}
+
+
+select.bootstrap-date{
+  display: inline-block;
+  width: auto;
+}
+
+.loading{
+  width: 33px;
+  height: 33px;
+  background: asset-url("rails_base/ajax-loader.gif") no-repeat 0 0;
+  display: inline-block;
+  -webkit-background-size: 33px auto;
+}
+
+tbody tr.clickable:hover td {
+  cursor: pointer;
+}
+
+.bootbox{
+  .modal-dialog {
+    width: 1000px;
+
+    [type="number"]{
+      width: 80px;
+    }
+  }
+}
