@@ -61,18 +61,18 @@ module RailsBase
 
     def default_meta_tags
       {
-        site: Settings.meta.site.name,
+        site: Settings.meta.site_name,
         reverse: true,
-        title: Settings.meta.site.page_title,
-        description: Settings.meta.site.page_description,
-        keywords: Settings.meta.site.page_keywords,
+        title: Settings.meta.page.title,
+        description: Settings.meta.page.description,
+        keywords: Settings.meta.page.keywords,
         canonical: request.original_url,
         og: {
           title: :title,
-          type: Settings.meta.site.meta.ogp.type,
+          type: Settings.meta.ogp.type,
           url: request.original_url,
-          image: image_url(Settings.meta.site.meta.ogp.image_path),
-          site_name: Settings.meta.site.name,
+          image: image_url(Settings.meta.ogp.image_path),
+          site_name: Settings.meta.site_name,
           description: :description,
           locale: 'ja_JP'
         }
