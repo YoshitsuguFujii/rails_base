@@ -8,7 +8,7 @@ You might need jQuery, Lodash or Underscore.js, backbone.js, fontawesome.css.
 add to assets/stylesheet/application.css.scss
 
 ```
-*= require rails_base/application
+@import "rails_base/application";
 ```
 
 ### javascriptの読み込み

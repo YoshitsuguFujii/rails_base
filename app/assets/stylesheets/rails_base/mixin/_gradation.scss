@@ -1,0 +1,11 @@
+// 上下に明→暗
+@mixin gradient-top-lighten($color:$hoge, $lighten:10){
+  background-color: $color;
+  @include background-image(linear-gradient(lighten($color, $lighten) 0%, $color 100%));
+}
+
+// 上下に暗→明
+@mixin gradient-top-darken($color:$hoge, $darken:10){
+  background-color: $color;
+  @include background-image(linear-gradient(darken($color, $darken) 0%, $color 100%));
+}

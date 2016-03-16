@@ -1,0 +1,24 @@
+// CSS3の新しい単位 rem でフォントサイズを指定する
+@mixin font-size($size, $base: 16) {
+  font-size: $size + px;
+  font-size: ($size / $base) + rem;
+}
+
+// 文字に1pxの黒いシャドウ
+@mixin text-shadow-black($opacity: .4){
+  text-shadow: 0 1px 0 rgba(#000, $opacity);
+}
+
+// 文字に1pxの白いシャドウ
+@mixin text-shadow-white($opacity: 1){
+  text-shadow: 0 1px 0 rgba(#FFF, $opacity);
+}
+
+// リンクカラーを一括指定
+@mixin linkColor($color) {
+  color: $color;
+
+  &:hover, &:active, &:focus {
+    color: lighten($color, 20%);
+  }
+}

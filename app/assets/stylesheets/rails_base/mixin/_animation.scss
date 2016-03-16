@@ -1,0 +1,17 @@
+$prefixes: ("-webkit-", "-moz-", null);
+@mixin keyframes($name){
+  @-webkit-keyframes $name {
+    @content;
+  }
+  @-moz-keyframes $name {
+    @content;
+  }
+  @keyframes $name {
+    @content;
+  }
+}
+@mixin animation($name, $duration, $timing, $delay, $count, $direction: null) {
+  @each $prefix in $prefixes {
+    #{$prefix}#{animation}: $name $duration $timing $delay $count $direction;
+  }
+}
