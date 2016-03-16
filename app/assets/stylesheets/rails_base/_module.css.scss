@@ -46,6 +46,22 @@ $margins:  5, 10, 15, 20, 25, 30;
   }
 }
 
+@mixin wide_btn($width:296px, $height:46px){
+  width: $width;
+  height: $height;
+  line-height: $height;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0 auto;
+  display: block;
+  border: 2px solid #ffffff;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  text-align: center;
+  background: none;
+}
 
 select.bootstrap-date{
   display: inline-block;
@@ -73,3 +89,4 @@ tbody tr.clickable:hover td {
     }
   }
 }
+
