@@ -26,6 +26,10 @@ add to config/initializers/rails_base.rb
 class ApplicationController < ActionController::Base
   helper RailsBase::Engine.helpers
 end
+
+class ApplicationHelper
+  include RailsBase::Helpers::FormErrorHelper
+end
 ``` 
 
 
