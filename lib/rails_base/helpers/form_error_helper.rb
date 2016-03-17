@@ -12,7 +12,7 @@ module RailsBase::Helpers
         error_messages.merge!({ attr_name => error_message(instance, attr_name) })
       end
 
-      if_block = html.gsub(/[\r\n]/,"").scan(/#{HAS_ERROR_IF_STATEMENT_START}.*?#{HAS_ERROR_IF_STATEMENT_END}/).flatten.first
+      if_block = html.scan(/#{HAS_ERROR_IF_STATEMENT_START}.*?#{HAS_ERROR_IF_STATEMENT_END}/m).flatten.first
       if error_messages.values.any?(&:present?)
         html.gsub!(HAS_ERROR_IF_STATEMENT_START, "").gsub!(HAS_ERROR_IF_STATEMENT_END, "") if if_block.present?
         doc = Nokogiri::HTML::DocumentFragment.parse(html)
