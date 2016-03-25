@@ -14,6 +14,7 @@ module RailsBase::ActiveRecord
             password: Devise.friendly_token[4, 30])
           instance.skip_confirmation! if instance.attributes.keys.include?("confirmed_at")
           instance.profile_image_path =  auth.info.image if instance.attributes.keys.include?("profile_image_path") && auth.info.image
+          instance.profile = auth.info.description if instance.attributes.keys.include?("profile") && auth.info.description
           instance.save
         end
         instance
