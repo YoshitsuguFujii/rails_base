@@ -1,0 +1,17 @@
+@mixin upload-file($width, $height, $color){
+  overflow: hidden;
+  position: relative;
+  width: $width;
+  height: $height;
+
+  input[type="file"]{
+    //font-size: 1000px !important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: $width + 500px;
+    height: $height + 500px;
+    color: $color;
+    cursor: pointer;
+  }
+}
