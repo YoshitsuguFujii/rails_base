@@ -14,6 +14,15 @@ $ ->
       $(@).after("<span class=\"char_counter\">0</span>")
   $(".count_char").trigger('keyup')
 
+  toggle_visible_area_switch = ".toggle_visible_area_switch"
+  $(document).on "change", toggle_visible_area_switch, (event)->
+    $toggleArea = $($(@).data("toggleArea") || ".toggleArea")
+    if $(@).checked()
+      $toggleArea.show()
+    else
+      $toggleArea.hide()
+  $(toggle_visible_area_switch).change()
+
   $(document).on 'fileimageloaded', '.bootstrap_image_file_upload', (event, previewId) ->
     file_input = @
     fd = new FormData($('form').get(0));

@@ -9,13 +9,13 @@ $ ->
       $(this).removeAttr "disabled"
     disabled: ->
       $(this).attr "disabled", "disabled"
-    member: (str) ->
+    member: (str) =>
       $(this).html().indexOf(str) isnt -1
-    checked: (str) ->
-      $(this).attr "checked"
-    check: (str) ->
+    checked: () ->
+      $(this).prop "checked"
+    check: () ->
       $(this).attr "checked", "checked"
-    uncheck: (str) ->
+    uncheck: () ->
       $(this).removeAttr "checked"
     only_one_inputable: ->
       $(@).bind "change", ->
