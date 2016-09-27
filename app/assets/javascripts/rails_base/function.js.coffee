@@ -1,4 +1,4 @@
-class Rab
+class Rb
 
   ##
   # 年月日と加算月からnヶ月後、nヶ月前の日付を求める
@@ -80,17 +80,17 @@ class Rab
       data: send_data,
       dataType: "json"
       beforeSend: ->
-        Rab.dispAlertMessage({})
+        Rb.dispAlertMessage({})
       success: (message) ->
-        Rab.dispAlertMessage(message) if message.messages
+        Rb.dispAlertMessage(message) if message.messages
         dfd.resolve()
       error: (XMLHttpRequest, textStatus, errorThrown)=>
         message = {type: 'danger', messages: ['処理に失敗しました。再度実行してください。']}
-        Rab.dispAlertMessage(message)
+        Rb.dispAlertMessage(message)
         dfd.reject()
 
   @dispAlertMessage: (messages) ->
-    if JST && JST["alert_messages"]
+    if JST? && JST["alert_messages"]
       $('.alert_area').html(JST["alert_messages"](messages))
     else
       html = ""
@@ -100,4 +100,4 @@ class Rab
                 </div>"
       $('.alert_area').html($("<div>").text(html).html())
 
-@.Rab = Rab
+@.Rb = Rb

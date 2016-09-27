@@ -5,4 +5,5 @@ RailsBase::Engine.routes.draw do
       patch :tmp_upload
     end
   end
+  resources :address, only: [:show]
 end

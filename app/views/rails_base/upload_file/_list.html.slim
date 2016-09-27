@@ -1,8 +1,8 @@
 - if @upload_files.present?
   .return-message
-  ul.rab-upload-file-cards
+  ul.rb-upload-file-cards
     - @upload_files.each_with_index do |upload_file, idx|
-      li.rab-upload-file-card data-id=upload_file.id
+      li.rb-upload-file-card data-id=upload_file.id
         span.time= "[#{upload_file.created_at}]"
         br
         span.file-name= upload_file.data_file_name

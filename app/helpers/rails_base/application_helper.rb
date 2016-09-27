@@ -38,16 +38,16 @@ module RailsBase
 
     def upload_file_button_tag(options = {})
       options[:class] ||= " btn btn-default"
-      options["data-url"] ||= rab.upload_file_index_path
-      options[:class] += " rab_upload_file"
+      options["data-url"] ||= rb.upload_file_index_path
+      options[:class] += " rb_upload_file"
       iframe = '<iframe name="ajaxPostFile" style="display:none; width:0; height:0"></iframe>'.html_safe
       iframe + link_to(t("file_upload"), "javascript:void(0)", options)
     end
 
     def link_to_upload_file_index(options = {})
       options[:class] ||= " btn btn-default ml10"
-      options["data-url"] ||= rab.upload_file_index_path
-      options[:class] += " rab_uploaded_list"
+      options["data-url"] ||= rb.upload_file_index_path
+      options[:class] += " rb_uploaded_list"
       link_to(t("upload_file_list"), "javascript:void(0)", options)
     end
 

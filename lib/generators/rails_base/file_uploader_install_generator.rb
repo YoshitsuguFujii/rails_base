@@ -5,7 +5,7 @@ module RailsBase
       desc "RailsBase FileUploader prepare"
       source_root File.expand_path('../templates', __FILE__)
 
-      #class_option :route_name, desc: "url alias name", type: :string, default: "/rab"
+      #class_option :route_name, desc: "url alias name", type: :string, default: "/rb"
 
       def self.next_migration_number(dirname)
         Time.now.strftime("%Y%m%d%H%M%S")
@@ -13,7 +13,7 @@ module RailsBase
 
       def mount_engine
         #engine_route = "mount RailsBase::Engine => '/rails_engine_base', as: '#{options.route_name}'"
-        engine_route = "mount RailsBase::Engine => '/rails_engine_base', as: 'rab'"
+        engine_route = "mount RailsBase::Engine => '/rails_engine_base', as: 'rb'"
         if File.exists?("config/routes.rb") && File.open("config/routes.rb", &:read).include?(engine_route)
           say_status("skipped", "#{engine_route} already exists in config/routes.rb")
         else

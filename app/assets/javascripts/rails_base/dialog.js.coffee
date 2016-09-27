@@ -10,7 +10,7 @@ $ ->
       init_callback_function = $(@).data("initCallbackFunction")
       callback_function = $(@).data("callbackFunction")
 
-      dfd = Rab.commonAjaxRequest(url, "GET", send_data)
+      dfd = Rb.commonAjaxRequest(url, "GET", send_data)
       dfd.done (data) =>
         bootboxModal = bootbox.dialog
           title: ""
@@ -24,7 +24,7 @@ $ ->
                 url = $form.prop("action")
                 method = $form.prop("method")
 
-                dfd_post = Rab.commonAjaxRequest(url, method, $form.serializeArray())
+                dfd_post = Rb.commonAjaxRequest(url, method, $form.serializeArray())
                 dfd_post.done (data) ->
                   if data.type == "success"
                     bootbox.hideAll()
@@ -58,7 +58,7 @@ $ ->
         _.include(["_method"], data.name)
       send_data = send_data.concat(images)
 
-      dfd = Rab.commonAjaxRequest(url, "POST", send_data)
+      dfd = Rb.commonAjaxRequest(url, "POST", send_data)
       dfd.done (data) =>
         bootboxModal = bootbox.dialog
           title: ""
@@ -83,7 +83,7 @@ $ ->
       if result is true
         if $(@).data("remote")
           url = $(@).siblings(".delete-link").attr("href")
-          dfd = Rab.commonAjaxRequest(url, "DELETE")
+          dfd = Rb.commonAjaxRequest(url, "DELETE")
           dfd.done (data) =>
             if (data.status != 200 && $(".return-message").exists())
               $(".return-message").html("<div class='alert alert-danger mr30 ml30'>#{data.message}</div>")

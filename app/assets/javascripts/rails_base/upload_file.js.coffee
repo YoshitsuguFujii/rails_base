@@ -1,18 +1,18 @@
 $ ->
   # ファイルアップロード
-  $(document).on "click", ".rab_upload_file", (event) ->
+  $(document).on "click", ".rb_upload_file", (event) ->
     event.preventDefault() if event
 
     if bootbox
       url = $(@).data("url")
       template = $(@).data("template") ||
-             "<form enctype='multipart/form-data' action='#{url}' accept-charset='UTF-8' method='post' target='ajaxPostFile' id='rab_upload_file_form'>\n" +
-             "  <div id='rab-loading-image' class='error-text mb10'></div>\n" +
-             "  <div id='rab-return-error-message' class='error-text mb10'></div>\n" +
-             "  <div id='rab-return-success-message' class='success-text mb10'></div>\n" +
+             "<form enctype='multipart/form-data' action='#{url}' accept-charset='UTF-8' method='post' target='ajaxPostFile' id='rb_upload_file_form'>\n" +
+             "  <div id='rb-loading-image' class='error-text mb10'></div>\n" +
+             "  <div id='rb-return-error-message' class='error-text mb10'></div>\n" +
+             "  <div id='rb-return-success-message' class='success-text mb10'></div>\n" +
              "  <input name='utf8' type='hidden' value='✓'>\n" +
-             "  <input type='hidden' name='authenticity_token' value='#{Rab.csrfParams().authenticity_token}'>\n" +
-             "  <input type='file' name='file_name' id='rab_file_name'>\n" +
+             "  <input type='hidden' name='authenticity_token' value='#{Rb.csrfParams().authenticity_token}'>\n" +
+             "  <input type='file' name='file_name' id='rb_file_name'>\n" +
              "</form>\n"
 
       bootboxModal = bootbox.dialog
@@ -23,32 +23,32 @@ $ ->
             label: 'アップロード'
             className: 'btn-primary'
             callback: =>
-              $form = $('#rab_upload_file_form')
+              $form = $('#rb_upload_file_form')
               return if !$form
 
               $iframe = $('iframe[name="ajaxPostFile"]')
               $iframe.off().on 'load', ->
-                clearTimeout(rab_upload_timeout)
+                clearTimeout(rb_upload_timeout)
 
                 data = $iframe.contents().find('body').html()
                 if data
                   data = JSON.parse(data)
                 if data.status == 200
-                  $('#rab-loading-image').html("")
-                  $('#rab-return-error-message').html("")
-                  $('#rab-return-success-message').html("#{data.message}<br>#{data.path}")
+                  $('#rb-loading-image').html("")
+                  $('#rb-return-error-message').html("")
+                  $('#rb-return-success-message').html("#{data.message}<br>#{data.path}")
                 else
-                  $('#rab-loading-image').html("")
-                  $('#rab-return-success-message').html("")
-                  $('#rab-return-error-message').html(data.message)
+                  $('#rb-loading-image').html("")
+                  $('#rb-return-success-message').html("")
+                  $('#rb-return-error-message').html(data.message)
                 return
               # loading 表示
-              $('#rab-loading-image').html '<div class="loading"></div>'
+              $('#rb-loading-image').html '<div class="loading"></div>'
               # timeout設定
-              rab_upload_timeout = setTimeout((->
-                if $('#rab-loading-image').html().match(/loading/)
-                   $('#rab-loading-image').html("")
-                   $('#rab-return-error-message').html '[!]タイムアウトしました。時間をおいてもう一度実行してください。'
+              rb_upload_timeout = setTimeout((->
+                if $('#rb-loading-image').html().match(/loading/)
+                   $('#rb-loading-image').html("")
+                   $('#rb-return-error-message').html '[!]タイムアウトしました。時間をおいてもう一度実行してください。'
               ), 60 * 1000)
               $form.submit()
               return false
@@ -58,14 +58,14 @@ $ ->
 
 
   # ファイル一覧
-  $(document).on "click", ".rab_uploaded_list", (event) ->
+  $(document).on "click", ".rb_uploaded_list", (event) ->
     event.preventDefault() if event
 
     if bootbox
       url = $(@).data("url")
       target = $(@).data("target")
 
-      dfd = Rab.commonAjaxRequest(url, "GET", {init: true, target: target})
+      dfd = Rb.commonAjaxRequest(url, "GET", {init: true, target: target})
       dfd.done (data) =>
         bootboxModal = bootbox.dialog
           title: ""

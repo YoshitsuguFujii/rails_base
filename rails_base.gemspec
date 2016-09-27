@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency "compass-rails"
   s.add_dependency "kaminari"
   s.add_dependency "slim"
+  s.add_dependency "zip_code_jp"
 end

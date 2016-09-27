@@ -46,7 +46,7 @@ $ ->
       @belongs.on "change", (event, args) =>
         if @belongs.val() && @belongs.val() != "0"
           id = @belongs.val()
-          dfd = Rab.commonAjaxRequest(@url.replace(":id",  id), "GET")
+          dfd = Rb.commonAjaxRequest(@url.replace(":id",  id), "GET")
           dfd.done (data) =>
             if data.length > 0
               @selectable.enable()
