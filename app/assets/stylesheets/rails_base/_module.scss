@@ -83,7 +83,7 @@ select.bootstrap-date{
 .loading{
   width: 33px;
   height: 33px;
-  background: asset-url("rails_base/ajax-loader.gif") no-repeat 0 0;
+  background: image-url("rails_base/ajax-loader.gif") no-repeat 0 0;
   display: inline-block;
   -webkit-background-size: 33px auto;
 }
